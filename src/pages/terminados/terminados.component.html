@@ -1,0 +1,14 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title align="center">Tareas Finalizadas</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+      <h5 color="secondary">Tareas Finalizadas</h5>
+      <ion-list>
+          <button ion-item *ngFor="let lista of listas" (click)="listaSelected(lista)">
+            {{ lista.titulo }}
+          </button>  
+        </ion-list> 
+  </ion-content>

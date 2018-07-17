@@ -1,14 +1,14 @@
 <ion-header>
     <ion-navbar color="primary">
-      <ion-title align="center">Tareas Finalizadas</ion-title>
+        <ion-title align="center">Realizado</ion-title>
     </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding>
-      <h5 color="secondary">Tareas Finalizadas</h5>
-      <ion-list>
-          <button ion-item *ngFor="let lista of listas" (click)="listaSelected(lista)">
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-list-header>Tareas Finalizadas</ion-list-header>
+        <button ion-item *ngFor="let lista of listas" (click)="listaSelected(lista)">
             {{ lista.titulo }}
-          </button>  
-        </ion-list> 
-  </ion-content>
+          </button>
+    </ion-list>
+</ion-content>

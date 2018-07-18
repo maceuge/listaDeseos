@@ -4,17 +4,33 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-list>
-        <ion-list-header>Tareas Pendientes</ion-list-header>
+<ion-content>
 
-        <button ion-item *ngFor="let lista of listas" (click)="listaSelected(lista)">
+    <ion-list inset>
+        <ion-list-header *ngIf="listas.length === 0">Actualmente no tiene tareas</ion-list-header>
+        <ion-list-header *ngIf="listas.length > 0">Tareas Pendientes</ion-list-header>
+
+        <ion-item-sliding *ngFor="let lista of listas; let i = index">
+            <button ion-item (click)="listaSelected(lista)">
              {{ lista.titulo }}
-        </button>
+             <!--ion-icon name="arrow-dropright" item-end></ion-icon-->
+             <ion-note item-end>{{ lista.item.length }}</ion-note>
+            </button>
+
+            <ion-item-options side="left">
+                <button ion-button color="danger" (click)="eliminarLista(i)">
+                    <ion-icon name="ios-trash"></ion-icon> Borrar            
+                </button>
+                <button ion-button color="secondary" (click)="editarNomLista(lista.titulo)">
+                    <ion-icon name="create"></ion-icon>  Editar           
+                </button>
+            </ion-item-options>
+
+        </ion-item-sliding>
     </ion-list>
 
     <ion-fab bottom right>
-        <button (click)="showPrompt()" ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+        <button (click)="agregarLista()" ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
     </ion-fab>
 
 </ion-content>

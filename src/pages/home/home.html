@@ -5,8 +5,38 @@
 </ion-header>
 
 <ion-content>
-    <ion-slides pager>
 
+    <ion-card>
+        <ion-card-header>
+            Tareas por mes
+        </ion-card-header>
+        <ion-card-content>
+            <canvas #barCanvas></canvas>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            Doughnut Chart
+        </ion-card-header>
+        <ion-card-content>
+            <canvas #doughnutCanvas></canvas>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            Line Chart
+        </ion-card-header>
+        <ion-card-content>
+            <canvas #lineCanvas></canvas>
+        </ion-card-content>
+    </ion-card>
+
+
+
+
+    <!--ion-slides pager>
         <ion-slide style="background-color: #f4f4f4">
             <h2>
                 <ion-icon name="cube"></ion-icon>
@@ -24,6 +54,5 @@
         <ion-slide style="background-color: #32db64">
             <h2>Slide 3</h2>
         </ion-slide>
-
-    </ion-slides>
+    </ion-slides-->
 </ion-content>

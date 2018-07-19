@@ -20,21 +20,34 @@ export class HomePage implements OnInit{
     lineChart: any;
 
     lista: Lista[];
-    cantListas: number;
+    cantJul = 0;
 
   constructor(public navCtrl: NavController,
               public listaService: DeseosService) {
 
-     // this.cantListas = this.listaService.getListas().length;  
-     // console.log(this.cantListas);       
+     this.lista = this.listaService.getListas();
+
+     for (const list of this.lista) {
+       let mes = this.formatDateString(list.creadaEn);
+
+        switch (mes) {
+          case 'jul.': this.cantJul += 1; 
+                        console.log(mes + this.cantJul);         
+          break;
+          default:console.log('no tiene mes asignado');
+            break;
+        }  
+     }
+           
   }
 
-  ngOnInit () {
-    this.cantListas = this.listaService.getListas().length;  
+  ngOnInit () {}
 
-    //let charData = this.barChart;
-    console.log(this.barCanvas.nativeElement);
-    
+  formatDateString (date: Date) {
+    let newDate = date.toString().substring(0, 10);
+    let dataFormat = new Date(newDate);
+    let locale = 'es-us';
+    return dataFormat.toLocaleString(locale, { month: 'short'});
   }
 
   ionViewDidLoad() {
@@ -48,18 +61,18 @@ export class HomePage implements OnInit{
                 label: 'N° Tareas',
                 //data: [this.cantListas, 13, 11, 4, 8, 9, 20, 4, 3, 1, 7, 6],
                 data: [
-                  {x:'En', y: this.cantListas}, 
-                  {x:'Feb', y:10},
-                  {x:'Mar', y:10},
-                  {x:'Abr', y:10},
-                  {x:'May', y:10},
-                  {x:'Jun', y:10},
-                  {x:'Jul', y:10},
-                  {x:'Ago', y:10},
-                  {x:'Sep', y:10},
-                  {x:'Oct', y:10},
-                  {x:'Nov', y:10},
-                  {x:'Dic', y:10}
+                  {x:'Ene', y:0}, 
+                  {x:'Feb', y:0},
+                  {x:'Mar', y:0},
+                  {x:'Abr', y:0},
+                  {x:'May', y:0},
+                  {x:'Jun', y:0},
+                  {x:'Jul', y: this.cantJul},
+                  {x:'Ago', y:0},
+                  {x:'Sep', y:0},
+                  {x:'Oct', y:0},
+                  {x:'Nov', y:0},
+                  {x:'Dic', y:0}
                 ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

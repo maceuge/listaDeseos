@@ -1,9 +1,9 @@
 <ion-list inset>
-        <!--ion-list-header *ngIf="listas.length === 0">Actualmente no tiene tareas</ion-list-header>
+    <!--ion-list-header *ngIf="listas.length === 0">Actualmente no tiene tareas</ion-list-header>
         <ion-list-header *ngIf="listas.length > 0">Tareas Pendientes</ion-list-header-->
 
-        <ion-item-sliding #slidingItem *ngFor="let lista of listas | filtroCompletado:terminada ; let i = index">
-            <button ion-item (click)="listaSelected(lista)">
+    <ion-item-sliding #slidingItem *ngFor="let lista of listas | filtroCompletado:terminada ; let i = index">
+        <button ion-item (click)="listaSelected(lista)">
              <h2>{{ lista.titulo }}</h2>
              <p *ngIf="!lista.terminada">Creada {{ lista.creadaEn | date:'short' }}</p>
              <p *ngIf="lista.terminada">Finalizada {{ lista.finalizEn | date:'short' }}</p>
@@ -11,14 +11,14 @@
              <ion-note item-end>{{ lista.item.length }}</ion-note>
             </button>
 
-            <ion-item-options side="left">
-                <button ion-button color="danger" (click)="eliminarLista(i)">
+        <ion-item-options side="left">
+            <button ion-button color="danger" (click)="eliminarLista(i)">
                     <ion-icon name="ios-trash"></ion-icon> Borrar            
                 </button>
-                <button ion-button color="secondary" (click)="editarNomLista(lista, slidingItem)">
+            <button ion-button color="secondary" (click)="editarNomLista(lista, slidingItem)">
                     <ion-icon name="create"></ion-icon>  Editar           
                 </button>
-            </ion-item-options>
+        </ion-item-options>
 
-        </ion-item-sliding>
-    </ion-list>
+    </ion-item-sliding>
+</ion-list>

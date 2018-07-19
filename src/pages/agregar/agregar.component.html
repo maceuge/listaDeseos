@@ -15,9 +15,9 @@
 
 
     <ion-list inset *ngIf="lista.item.length > 0">
-        <ion-list-header>Tareas por Hacer</ion-list-header>
+        <ion-list-header class="animated fadeIn">Tareas por Hacer</ion-list-header>
 
-        <ion-item-sliding *ngFor="let item of lista.item; let i = index" class="animated fadeInDown">
+        <ion-item-sliding *ngFor="let item of lista.item; let i = index" class="animated fadeInDown fast">
             <button (click)="checkItem(item)" ion-item detail-none>
                 <ion-icon *ngIf="!item.completado" name="square-outline" item-start></ion-icon>
                 <ion-icon *ngIf="item.completado" name="checkbox-outline" item-start></ion-icon>

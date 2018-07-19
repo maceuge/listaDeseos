@@ -14,6 +14,8 @@ import { PendienteComponent } from '../pages/pendientes/pendientes.component';
 import { TerminadosComponent } from '../pages/terminados/terminados.component';
 import { DeseosService } from '../services/deseos.service';
 import { AgregarComponent } from '../pages/agregar/agregar.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { ListaComponent } from '../components/lista.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,12 @@ import { AgregarComponent } from '../pages/agregar/agregar.component';
     TabsPage,
     PendienteComponent,
     TerminadosComponent,
-    AgregarComponent
+    AgregarComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,
+    PipesModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -39,7 +43,8 @@ import { AgregarComponent } from '../pages/agregar/agregar.component';
     TabsPage,
     PendienteComponent,
     TerminadosComponent,
-    AgregarComponent
+    AgregarComponent,
+    ListaComponent
   ],
   providers: [
     StatusBar,

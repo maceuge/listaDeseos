@@ -4,11 +4,9 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-list>
-        <ion-list-header>Tareas Finalizadas</ion-list-header>
-        <button ion-item *ngFor="let lista of listas" (click)="listaSelected(lista)">
-            {{ lista.titulo }}
-          </button>
-    </ion-list>
+<ion-content>
+    <ion-list-header>Tareas Finalizadas</ion-list-header>
+
+    <app-listas [terminada]="true"></app-listas>
+
 </ion-content>
